@@ -1,0 +1,146 @@
+/*widgets & panel css*/
+a.nav-expander {/* quick link button collapsed */
+    background: repeat scroll;
+    color: white;
+    background-color: rgba(71, 116, 154, 0.48);
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 2px 12px 0px 0px;
+    padding: 6px 15px 4px 15px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: right 0.3s ease-in-out 0s;
+    z-index: 12;
+    transition: right 0.3s ease-in-out 0s;
+    -webkit-transition: right 0.3s ease-in-out 0s;
+    -moz-transition: right 0.3s ease-in-out 0s;
+    -o-transition: right 0.3s ease-in-out 0s;
+    border-radius: 10px;
+}
+
+a.nav-expander:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+a.nav-expander.fixed {
+    position: fixed;
+    top: 116px;
+}
+
+.nav-expanded a.nav-expander.fixed {
+    right: 239px; /* quick link button expanded */
+    top: 116px;
+}
+.nav-expanded nav {
+    right: 0;
+}
+nav {
+    background: transparent;
+    display: block;
+    height: 100%;
+    overflow: auto;
+    position: fixed;
+    top: 85px;
+    right: -227px; /* menu offset */
+    font-size: 10px;
+    width: 227px; /* menu width */
+    z-index: 2000;
+    margin: 2px 0px 0px 0px;
+    transition: right 0.3s ease-in-out 0s;
+    -webkit-transition: right 0.3s ease-in-out 0s;
+    -moz-transition: right 0.3s ease-in-out 0s;
+    -o-transition: right 0.3s ease-in-out 0s;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0);
+}
+.panel-default {
+    border-color: transparent;
+}
+.panel-heading {
+    text-align: center;
+    color: #4f90b1;
+    background-color: rgb(64, 66, 136);
+    border-color: transparent;
+    border-radius: 7px;
+    background: rgb(235,235,235);
+    background: -moz-linear-gradient(top, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 75%, rgba(235,235,235,1) 87%, rgba(185,205,229,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(235,235,235,1) 0%,rgba(255,255,255,1) 20%,rgba(255,255,255,1) 20%,rgba(255,255,255,1) 75%,rgba(235,235,235,1) 87%,rgba(185,205,229,1) 100%);
+    background: linear-gradient(to bottom, rgba(235,235,235,1) 0%,rgba(255,255,255,1) 20%,rgba(255,255,255,1) 20%,rgba(255,255,255,1) 75%,rgba(235,235,235,1) 87%,rgba(185,205,229,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebebeb', endColorstr='#b9cde5',GradientType=0 );
+}
+/*being overwritten for complexity*/
+.panel-default>.panel-heading {
+    color:#68869c;
+}
+/*overwriding Panel spacing and shadow*/
+.panel.panel-default {
+    margin-bottom: 25px;
+    box-shadow: 18px 11px 20px dimgrey;
+}
+/*Overriding Button*/
+.panel.panel-default .panel-title {
+    font-size: 12px;
+}
+
+.panel-heading.collapsed:hover {
+    cursor: pointer;
+    background-color:#e4e2ee ;
+}
+.panel-body {
+    padding: 15px;
+    text-align: center;
+}
+.panel {
+    background-color: rgba(160, 170, 191, 0.79);
+    border: 1px solid transparent;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.panel-title {
+    font-weight: 600;
+}
+
+.widgetpanel {
+    background: transparent;
+    border: none;
+}
+.modal-content {
+    position: fixed;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+/*widgets css*/
+/*assignment widget*/
+#optionsdiv{
+    font-size: initial;
+    color: #e2e2e2;
+}
+#editdiv{
+    font-size: larger;
+}
+#updatecrew{
+    font-size: larger;
+    float: inherit;
+}
+#clearall{
+    font-size: larger;
+    float: inherit;
+}

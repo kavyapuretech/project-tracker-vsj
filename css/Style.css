@@ -1,0 +1,480 @@
+body, html {
+    height:  100%;
+    margin:  0;
+    padding: 0;
+    font-family: Verdana, sans-serif;
+    color:#5b569f;
+    font-size: small;
+    line-height: 1.25rem;
+    overflow: hidden;
+}
+.wrapper{
+    height:100%;
+    /*Change to white before publishing
+    background-color: darkred;*/
+    display: flex;
+    flex-direction: column;
+    -webkit-box-shadow:inset 0px 21px 35px -1px rgba(130,130,130,0.5);
+    -moz-box-shadow:inset 0px 21px 35px -1px rgba(130,130,130,0.5);
+    box-shadow:inset 0px 21px 35px -1px rgba(130,130,130,0.5);
+    overflow: hidden;
+}
+
+header{
+}
+.titleDiv{
+    height: 60%;
+    padding: .4em;
+    border-bottom: solid;
+    border-bottom-width: .1em;
+    border-bottom-color: #B9CDE5;
+    background-color: white;
+
+    background: rgba(235,235,235,1);
+    background: -moz-linear-gradient(top, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 25%, rgba(255,252,252,1) 99%, rgba(255,252,252,1) 100%);
+    /*background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(235,235,235,1)), color-stop(25%, rgba(255,255,255,1)), color-stop(99%, rgba(255,252,252,1)), color-stop(100%, rgba(255,252,252,1)));*/
+    background: -webkit-linear-gradient(top, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 25%, rgba(255,252,252,1) 99%, rgba(255,252,252,1) 100%);
+    background: -o-linear-gradient(top, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 25%, rgba(255,252,252,1) 99%, rgba(255,252,252,1) 100%);
+    background: -ms-linear-gradient(top, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 25%, rgba(255,252,252,1) 99%, rgba(255,252,252,1) 100%);
+    background: linear-gradient(to bottom, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 25%, rgba(255,252,252,1) 99%, rgba(255,252,252,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebebeb', endColorstr='#fffcfc', GradientType=0 );
+
+    /*background: rgba(235,235,235,1);*/
+    /*background: -moz-linear-gradient(top, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 20%, rgba(255,252,252,1) 80%, rgba(230,230,230,1) 99%);*/
+    /*background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(235,235,235,1)), color-stop(20%, rgba(255,255,255,1)), color-stop(80%, rgba(255,252,252,1)), color-stop(99%, rgba(230,230,230,1)));*/
+    /*background: -webkit-linear-gradient(top, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 20%, rgba(255,252,252,1) 80%, rgba(230,230,230,1) 99%);*/
+    /*background: -o-linear-gradient(top, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 20%, rgba(255,252,252,1) 80%, rgba(230,230,230,1) 99%);*/
+    /*background: -ms-linear-gradient(top, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 20%, rgba(255,252,252,1) 80%, rgba(230,230,230,1) 99%);*/
+    /*background: linear-gradient(to bottom, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 20%, rgba(255,252,252,1) 80%, rgba(230,230,230,1) 99%);*/
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebebeb', endColorstr='#e6e6e6', GradientType=0 );*/
+}
+.titleDivLeft{
+}
+
+.appTitle {
+    margin: 0;
+    color:#251D82;
+    font-family: Palatino,serif;
+    font-size: small;
+
+}
+.appSubTitle {
+    margin: 0;
+    color: #70bbe0;
+    font-family: "Helvetica Neue",sans-serif;
+    font-size: small;
+}
+
+.titleDivRight{
+    display: flex;
+    flex-wrap: wrap;
+    /*Float all items to the right*/
+    justify-content: flex-end;
+    align-items: center;
+}
+.navListDiv{
+    padding-right: 10px;
+}
+/*change from column list to row and remove bullets*/
+.navListDiv ul li
+{
+    list-style-type: none;
+    display: inline;
+}
+/*change add | content before every li element in navList but not first element*/
+.navListDiv li:not(:first-child):before {
+    content: " | ";
+    color: #ececec;
+}
+.navList{
+    margin:0;
+}
+.webLink{
+    color: #bfd9e6;
+    font-style: italic;
+}
+button, select {
+    color: #3e8ab3;
+    height: 100%;
+}
+.queryMenu{
+       border-style: hidden;
+   }
+/*Prevents Bootstrap from changing button color*/
+input, button, select, textarea {
+    line-height: 1rem;
+}
+
+.toolbarDiv{
+    padding: .3em;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ebebeb+0,ffffff+20,ffffff+20,ffffff+75,ebebeb+87,b9cde5+100 */
+    background: rgb(235,235,235); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 75%, rgba(235,235,235,1) 87%, rgba(185,205,229,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(235,235,235,1) 0%,rgba(255,255,255,1) 20%,rgba(255,255,255,1) 20%,rgba(255,255,255,1) 75%,rgba(235,235,235,1) 87%,rgba(185,205,229,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(235,235,235,1) 0%,rgba(255,255,255,1) 20%,rgba(255,255,255,1) 20%,rgba(255,255,255,1) 75%,rgba(235,235,235,1) 87%,rgba(185,205,229,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebebeb', endColorstr='#b9cde5',GradientType=0 ); /* IE6-9 */
+
+    /*background: rgba(235,235,235,1);*/
+    /*background: -moz-linear-gradient(top, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 20%, rgba(255,252,252,1) 80%, rgba(255,252,252,1) 80%, rgba(155,208,239,1) 99%, rgba(155,208,239,1) 100%);*/
+    /*background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(235,235,235,1)), color-stop(20%, rgba(255,255,255,1)), color-stop(80%, rgba(255,252,252,1)), color-stop(80%, rgba(255,252,252,1)), color-stop(99%, rgba(155,208,239,1)), color-stop(100%, rgba(155,208,239,1)));*/
+    /*background: -webkit-linear-gradient(top, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 20%, rgba(255,252,252,1) 80%, rgba(255,252,252,1) 80%, rgba(155,208,239,1) 99%, rgba(155,208,239,1) 100%);*/
+    /*background: -o-linear-gradient(top, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 20%, rgba(255,252,252,1) 80%, rgba(255,252,252,1) 80%, rgba(155,208,239,1) 99%, rgba(155,208,239,1) 100%);*/
+    /*background: -ms-linear-gradient(top, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 20%, rgba(255,252,252,1) 80%, rgba(255,252,252,1) 80%, rgba(155,208,239,1) 99%, rgba(155,208,239,1) 100%);*/
+    /*background: linear-gradient(to bottom, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 20%, rgba(255,252,252,1) 80%, rgba(255,252,252,1) 80%, rgba(155,208,239,1) 99%, rgba(155,208,239,1) 100%);*/
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebebeb', endColorstr='#9bd0ef', GradientType=0 );*/
+}
+.toolbarDivLeft{
+    display: flex;
+    align-items: center; /*center vertically */
+}
+.toolbarDivRight{
+    display: flex;
+    align-items: center;
+}
+section.toolbarDiv {
+    height: 39px;
+}
+.titleDiv,.toolbarDiv{
+    display: flex;
+    height:45px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mapDiv{
+    height: 92%;
+    width:100%;
+    -webkit-box-shadow:inset 0px 21px 35px -1px rgba(86, 86, 88, 0.58);
+    -moz-box-shadow:inset 0px 21px 35px -1px rgba(86, 86, 88, 0.58);
+    box-shadow:inset 0px 21px 35px -1px rgba(86, 86, 88, 0.58);
+
+}
+.mapShadowDiv {
+    position: absolute;
+     -webkit-box-shadow:inset 0px 20px 15px -1px rgba(86, 86, 88, 0.58);
+     -moz-box-shadow:inset 0px 20px 15px -1px rgba(86, 86, 88, 0.58);
+     box-shadow:inset 0px 20px 15px -1px rgba(86, 86, 88, 0.58);
+     background: transparent;
+     /*left: 0px;*/
+     /*top: 0px;*/
+    z-index: 0;
+    height: 25px;
+    width: 100%;
+ }
+.toolBtn {
+    padding: .5rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    /* border-radius: 5px; */
+    border-style: solid;
+    border-color: #c4ccd2;
+    color: gray;
+    position: absolute;
+    margin-left: 95%;
+    margin-top: 2%;
+    /* background-color: rgba(255, 255, 255, 0.4); */
+    box-shadow: 4px 14px 10px grey;
+}
+p {
+    float: right;
+}
+
+
+/*Transparency for graphic layers added to map  */
+#mapDiv_graphics_layer{
+    opacity: 0.6;
+}
+.esriBasemapGallerySelectedNode .esriBasemapGalleryThumbnail{
+    margin: 1px !important;
+}
+
+#hiddenActivitiesGrid{
+    position:absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    z-index:-100;
+    transition: height 1s;
+    -webkit-transition: height 1s;
+    /*overflow: auto;*/
+    background-color: #f7f8f8;
+}
+#featuretablecloseBtn{
+    position: relative;
+    top:2px;
+    cursor:pointer;
+    z-index: 160;
+    float: right;
+}
+/*closebutton alignment on right side of the table*/
+#hiddenActivitiesGrid span.dijit.dijitReset.dijitInline.dijitButton {
+    float: right;
+}
+/*checkmark button icon*/
+.chkBtn{
+    background-image: url(images/btn/BlueCheckMark_40.png);
+}
+
+/*cutsom dojo esri - remove bullet from before buttons */
+span.dijitReset.dijitToggleButtonIconChar {
+    display: none;
+}
+#search {
+    /*display: block;block*/
+    /*position: absolute;*/
+    /*z-index: 9999;*/
+    /*display: block;*/
+    border: solid;
+    border-width: .1rem;
+    border-radius: 0.5rem;
+    border-color: #f1ebeb;
+    height: 2.2rem;
+}
+div#search .searchBtn{
+    border: none;
+    background-color: transparent;
+    left:175px;
+}
+input#search_input{
+    border: none;
+    background-color: #f4f6f7;
+    border-radius: .5rem;
+}
+/*all panels for tools like basemaps */
+.toolPopUpContainer{
+    background-color: rgba(149, 161, 171, 0.76);
+    box-shadow: 25px 33px 61px grey;
+    color: whitesmoke;
+}
+#basemapPanelDiv {
+    width: 385px;
+    position: absolute;
+    z-index: 9999;
+    height: 360px;
+    left: 61px;
+    display: none;
+    border: 1px solid #aaa;
+    overflow-x: hidden;
+}
+
+#layerlist {
+    width: 385px;
+    position: absolute;
+    z-index: 9999;
+    left: 61px;
+    display: none;
+    border: 1px solid #aaa;
+    overflow-x: hidden;
+    max-height: 95%;
+}
+/*Dropdown GISlayer in layerlist height on map*/
+/*.esriTabs {*/
+    /*height: 700px !important;*/
+/*}*/
+.esriLayerList .esriContainer {
+    background-color: #f9f9f9 ;
+    color: #5b569f ;
+    height: 100%;
+}
+.esriLayerList .esriTitleContainer {
+    background-color: transparent ;
+    color: #5b569f ;
+    margin-right: 10px !important;
+}
+#Locate_Button {
+    position: absolute;
+    top: 464px;
+    left: 14px;
+    z-index: 50;
+    cursor: pointer;
+    box-shadow: 8px 4px 8px grey;
+}
+.LocateButton .zoomLocateButton {
+    background-color: rgb(121, 156, 202)!important;
+    background-image: url(images/btn/locate.png)!important;
+}
+.esriLargeSliderTL {
+    top: 3px !important;
+    left: 21px !important;
+}
+.zoominIcon {
+    background-image: url(images/btn/i_zoomin_40.png);
+    width: 16px;
+    height: 16px;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+}
+
+.zoomoutIcon {
+    background-image: url(images/btn/i_zoomout_40.png);
+    width: 16px;
+    height: 16px;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+}
+
+.zoomfullextIcon {
+    background-image: url(images/btn/i_zoomfull_40.png);
+    width: 16px;
+    height: 16px;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+}
+
+.zoomprevIcon {
+    background-image: url(images/btn/i_zoomprevious_blu_40.png);
+    width: 16px;
+    height: 16px;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+}
+
+.zoomnextIcon {
+    background-image: url(images/btn/i_zoomnext_blu_40.png);
+    width: 16px;
+    height: 16px;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+}
+
+.panIcon {
+    background-image: url(images/btn/i_pan_40.png);
+    width: 16px;
+    height: 16px;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+}
+
+#MapNavBtnDiv{
+    position : absolute;
+    top: 290px;
+    left: 12px;
+    z-index: 20;
+    display: block;
+}
+.navBtn{
+    box-shadow: 8px 4px 8px grey;
+}
+.map .bingLogo-lg {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    width: 93px;
+    height: 29px;
+    z-index: 30;
+    background-image: url(images/btn/bing-logo-lg.png)!important;
+}
+.selectMenu{
+    border-style: solid;
+    border-color: #e5ebef;
+    border-radius: 5px 5px 4px 4px;
+    width: 10rem;
+    background-color: transparent;
+    height: 100%;
+    margin: .1rem;
+}
+
+/*webtools */
+#webtools{
+    /*position: absolute;*/
+    /*overflow: auto;*/
+    z-index: 200;
+    /*left: 61px;*/
+    display: block;
+    /*border: 1px solid #aaa;*/
+    /*background-color: #e2e2e2;*/
+    color: darkblue;
+    width: 191px;
+
+}
+.templatePicker {
+    border: 1px solid #7EABCD;
+    padding: 3px;
+    -o-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    /*margin-right: 30px;*/
+}
+#webtoolswidget{
+    position: absolute;
+    z-index: 9999;
+    height: 400px;
+    left: 61px;
+    /*display: none;*/
+    border: 1px solid #aaa;
+    /*background: white;*/
+    /*overflow-y: scroll;*/
+    overflow-x: hidden;
+}
+/*container for h4 header and x in span*/
+#webNotesHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#webNotesHeader h4{
+    margin: 0 0 0 10px;
+}
+#webNotesHeader .webToolsSpan{
+    /*float: right;*/
+    font-size: 26px;
+    margin: 0px 10px;
+    cursor: pointer;
+}
+/*web notes button span and button node*/
+[widgetid="webtoolhighlightbutton"]{
+    width: 100%;
+}
+span.dijitReset.dijitInline.dijitButtonNode{
+    width: 100%;
+    color: #54919d;
+}
+/*iso trace widget*/
+.isoBreakPointBtn{
+    background-repeat: no-repeat;
+    background-image: url("../Assets/images/btn/isoBreakPointC30.png");
+    width: 33px;
+    height: 26px;
+}
+.isoSkipBtn{
+    background-repeat: no-repeat;
+    background-image: url("../Assets/images/btn/isoSkipB30.png");
+    width: 31px;
+    height: 24px;
+}
+.isoBreakPointBtn{
+    background-image: url("../Assets/images/btn/isoBreakPointC30.png");
+    width: 33px;
+    height: 26px;
+}
+.isoTraceSubmitBtn, .isoClearBtn, .isoHelpBtn{
+    padding: .21rem;
+    color: darkblue;
+}
+/*test*/
+/*Scrollbars need to update for IE*/
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(149, 161, 171, 0.76);
+    border: 1px solid #bcbdce;
+    /*border-radius: 9px;*/
+}
+::-webkit-scrollbar-thumb:hover {
+    background:gray;
+}
+::-webkit-scrollbar-track {
+    background: #bbc2c7;
+    border: 10px none #eaeaea;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-corner {
+    background: transparent;
+}

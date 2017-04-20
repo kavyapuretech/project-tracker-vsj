@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7, IE=9, IE=10">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>Project Tracker</title>
+    <!--<link rel="stylesheet" href="css/bootstrap.css">-->
+    <!--For dom calls and transitions -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--Link to Custom Styling-->
+    <link rel="stylesheet" href="css/Style.css">
+    <link rel="stylesheet" href="css/widgetPanel.css">
+    <!--Link to ESRI files-->
+    <link rel="stylesheet" href="https://js.arcgis.com/3.20/dijit/themes/tundra/tundra.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.20/dojo/resources/dojo.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.20/esri/css/esri.css">
+    <!--<link rel="stylesheet" href="css/esri.css">-->
+    <script src="https://js.arcgis.com/3.20/"></script>
+    <script type="text/javascript" src="widgets/widgetTemlate/widgetamdLoader.js"></script>
+    <script type="text/javascript" src="Config/appConfigLoader.js"></script>
+    <script type="text/javascript" src="js/basemap_option.js"></script>
+    <script type="text/javascript" src="js/canvasfunctions.js"></script>
+
+    <style>
+        html, body, #map {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <style>
+        .myInfoWindow .title {
+            font-weight: bold;
+            padding: 2px 2px 2px 2px;
+            background-color: #046380;
+            color: #E6E2AF;
+        }
+    </style>
+
+</head>
+<body class="tundra">
+<div class="wrapper">
+    <header>
+        <section Class="titleDiv">
+            <div class="titleDivLeft">
+                <!--clientiocon AMD citytagename from JSON FILE-->
+                <a class="client-logo"><img
+                        src="" id="clienticon" height="30px" width="45px"> </a>
+                <p class="appTitle"> &nbsp;Project Tracker <br>
+                    <span class="appSubTitle" id="citytagname"></span></p>
+            </div>
+            <div class="titleDivRight">
+                <div class="navListDiv">
+                    <ul class="navList">
+                        <!--list targets from JSON FILE-->
+                        <li><a class="webLink" target="_blank" id="homelink">Home</a></li>
+                        <li><a class="webLink" target="_blank" id="newslink">Link1</a></li>
+                        <li><a class="webLink" target="_blank" id="solutionslink">Link2</a></li>
+                        <li><a class="webLink" target="_blank" id="serviceslink">Link3</a></li>
+                    </ul>
+                </div>
+                <img height="85%" width="40%" src="" id="companyicon">
+            </div>
+        </section>
+        <section Class="toolbarDiv">
+            <div class="toolbarDivLeft">
+                <button onclick="openBasemap()" alt="basemaps">
+                    <img src="Assets/small_BaseMapBlue.png" alt ="b\maps" height="16" width="16"/>
+                    BaseMaps
+                </button>
+                <button onclick="openLayer()" alt="Layerlist">
+                    <img src="Assets/small_layersBlue.png" height="16" width="16"/>
+                    Layers
+                </button>
+                <button onclick="openwebtools()" alt="Web Notes">
+                    <img src="Assets/small_layersBlue.png" height="16" width="16"/>
+                    Web Notes
+                </button>
+            </div>
+            <div class="toolbarDivRight">
+                <select id="queryMenuBtn" class="selectMenu queryMenu" name="Quick Queries">Quick Queries</select>
+                <select id="reportsMenuBtn" class="selectMenu ReportMenu" name="Report Queries">Report Queries</select>
+                <div id="search"></div>
+                <!--<span><img height="20px" width="20px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Ic_menu_48px.svg/2000px-Ic_menu_48px.svg.png"/></span>-->
+            </div>
+        </section>
+    </header>
+    <nav style="overflow:hidden">
+        <!--widgetAccordianContent.htm.htm-->
+        <div id="widgetPanelDiv"></div>
+    </nav>
+    <div>
+        <div class="navbar-header pull-right">
+            <a id="nav-expandermain" class="nav-expander fixed toolBtn"> WIDGETS </a>
+            <!--<a class="nav-expander fixed" id="nav-expandermini">&#9776;</a>-->
+        </div>
+    </div>
+    <div id="MapNavBtnDiv">
+        <div data-dojo-type="dijit/form/Button" id="zoomin"  data-dojo-props="iconClass:'zoominIcon'" class="navBtn"></div>
+        <br>
+        <div data-dojo-type="dijit/form/Button" id="zoomout" data-dojo-props="iconClass:'zoomoutIcon'" class="navBtn"></div>
+        <br>
+        <div data-dojo-type="dijit/form/Button" id="zoomprev" data-dojo-props="iconClass:'zoomprevIcon'" class="navBtn"></div>
+        <br>
+        <div data-dojo-type="dijit/form/Button" id="zoomnext" data-dojo-props="iconClass:'zoomnextIcon'" class="navBtn"></div>
+        <br>
+        <div data-dojo-type="dijit/form/Button" id="zoomfullext" data-dojo-props="iconClass:'zoomfullextIcon'" class="navBtn"></div>
+        <br>
+        <div data-dojo-type="dijit/form/Button" id="pan" data-dojo-props="iconClass:'panIcon'" class="navBtn"></div>
+        <br>
+    </div>
+    <main>
+        <!--Map set to absolute for overlaying shadow div-->
+        <div id="mapDiv" class="mapDiv" onclick="closepanels()" style="position: absolute">
+            <div id="basemapPanelDiv" class="toolPopUpContainer">
+                <div style="height: 40px;">
+                    <h4 style="float: left; width: 80%; margin: 5px; vertical-align: center;">Select a Basemap</h4>
+                    <span style="float: right; font-size: 26px; margin: 0px 10px; cursor: pointer;"
+                          onclick="openBasemap()">&times;</span>
+            </div>
+            <hr style="margin: 0px 0px 5px 0px;">
+            <div id="basemapGallery"></div>
+        </div>
+        <div id="layerlist" class="toolPopUpContainer">
+            <div style="height: 40px;">
+                <h4 style="float: left; width: 80%; margin: 5px; vertical-align: center;">Layerlist</h4>
+                <span style="float: right; font-size: 26px; margin: 0px 10px; cursor: pointer;"
+                      onclick="openLayer()">&times;</span>
+            </div>
+            <hr style="margin: 0px 0px 5px 0px;">
+            <div id="layerListDom"></div>
+        </div>
+        <div id="webtoolswidget" class="toolPopUpContainer">
+            <div id="webNotesHeader">
+                <h4>Web Notes</h4>
+                <span class="webToolsSpan" onclick="openwebtools()">&times;</span>
+            </div>
+            <button id="webtoolhighlightbutton"></button>
+        <div id="webtools">
+            <div id="templateDiv"></div>
+            <div id="editorDiv"></div>
+        </div>
+        </div>
+        <div id="hiddenActivitiesGrid">
+            <div id="featuretablecloseBtn"></div>
+            <div id="FeatureTableNode"></div>
+        </div>
+    </div>
+    <div id="Locate_Button"></div>
+        <script src="js/Map.js"></script>
+        <div class="mapShadowDiv"></div>
+
+        <!--<button class="toolBtn">Tools</button>-->
+
+    </main>
+</div>
+
+<!--Input element created for html to call attributes from json loader -->
+<!-- xmldata.js -->
+<!--<input type="hidden" id="attributevalues">-->
+<!--<input type="hidden" id="template">-->
+<!--<input type="hidden" id="txt_id">-->
+<!--<input type="hidden" id="search_optn">-->
+<!-- xmldata.js end -->
+</body>
+</html>
