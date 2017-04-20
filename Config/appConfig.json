@@ -1,0 +1,247 @@
+{
+  "configSettings": {
+      "label": {
+        "label1": "XML1",
+        "label2": "xml2",
+        "#text": "XML Default"
+      },
+      "clientlogo": "Assets/BALTIMORECITYSEAL_40.png",
+      "apptitle": "Project Tracking: Baltimore DPW",
+      "companylogo": "Assets/NewWachsLogo.PNG",
+      "companysmalllogo": "Assets/images/wachsicon.png",
+      "homelink": { "url": "http://www.wachsws.com/"},
+      "newslink": { "url": "http://www.wachsws.com/news"},
+      "solutionslink": { "url": "http://www.wachsws.com/solutions"},
+      "serviceslink": { "url": "http://www.wachsws.com/services"},
+      "map": {
+        "xmlns:dt": "urn:schemas-microsoft-com:datatypes",
+        "zoomslider": "true",
+        "xmin": "-8558453.828774555",
+        "ymin": "4746044.498253688",
+        "xmax": "-8493922.019319644",
+        "ymax": "4800333.163350677",
+        "wkid": "102100",
+        "localWKID": "2248",
+        "northarrow": "source=@Embed(source='src/assets/icons/NorthArrow.png')"
+      },
+      "vetiledlayerstreet": {
+        "culture": "en-US",
+        "key": "Ao-1ZsdYgIJ78TGQYHHQ2BucDl37tg1R3iPX1ekLuMMoj7b3pOMkQHUV-myGUr3I",
+        "loaderror": "Alert.show(event.fault.faultString, 'VETiledLayer loadError')",
+        "mapstyle": "road"
+      },
+      "gridlayer": {
+        "id": "GridLayer",
+        "url": "https://solutions.puretechltd.com/wwsarcgis/rest/services/BlankMapService/MapServer",
+        "alpha": ".2"
+      },
+      "dynamiclayer1": {
+        "id": "GISLayer",
+        "url": "https://solutions.puretechltd.com/wwsarcgis/rest/services/Baltimore/BaltoTracking/MapServer",
+        "alpha": "1.0"
+      },
+      "dynamiclayer2": {
+        "id": "QueryLayer",
+        "url": "https://solutions.puretechltd.com/wwsarcgis/rest/services/Baltimore/BaltoQuery/MapServer",
+        "alpha": ".8"
+      },
+      "dynamiclayer3": {
+        "id": "PressureZoneLayer",
+        "url": "https://solutions.puretechltd.com/arcgis/rest/services/BlankMapService/MapServer",
+        "alpha": ".9"
+      },
+      "dynamiclayer4": {
+        "id": "GridAssignment",
+        "url": "https://solutions.puretechltd.com/arcgis/rest/services/BlankMapService/MapServer",
+        "alpha": ".9"
+      },
+      "dynamiclayer5": {
+        "id": "GISLayer",
+        "url": "https://solutions.puretechltd.com/arcgis/rest/services/BlankMapService/MapServer",
+        "alpha": "1.0"
+      },
+      "dynamiclayer6": {
+        "id": "GISLayer",
+        "url": "https://solutions.puretechltd.com/arcgis/rest/services/BlankMapService/MapServer",
+        "alpha": "1.0"
+      },
+      "dynamiclayer7": {
+        "id": "GISLayer",
+        "url": "https://solutions.puretechltd.com/arcgis/rest/services/BlankMapService/MapServer",
+        "alpha": ".8"
+      },
+      "dynamiclayer8": {
+        "id": "GISLayer",
+        "url": "https://solutions.puretechltd.com/arcgis/rest/services/BlankMapService/MapServer",
+        "alpha": ".8"
+      },
+      "infowindowfeaturelayer": {
+        "source": "Valve Status",
+        "url": "https://solutions.puretechltd.com/wwsarcgis/rest/services/Baltimore/BaltoQuery/FeatureServer/4",
+        "uniqueid": "FacilityID",
+        "alpha": ".5",
+        "outFields": "GRID,CUST_VALVEUSE,WWS_VALVEUSE,VALVE_TYPE,VLV_SIZE,SURFACE_COVER,STRUCTURE,LID_SIZE,INSPECTION_DATE,CONDITION,MAX_MAX_TORQUE,VLV_CLOSE_DIR,INT_WO_DESC,EXT_WO_DESC,BYP_VALVE_PRESENT"
+      },
+    "assigmentfeaturelayer": {
+      "source": "assignmentlayer",
+      "url": "https://solutions.puretechltd.com/wwsarcgis/rest/services/Baltimore/BaltoQuery/FeatureServer/2",
+      "uniqueid": "GRID_ID",
+      "alpha": ".5"
+    },
+      "infowindowfeaturelayerHyd": { "url": "http://www.mywachswater.com/ArcGIS/rest/services/Baltimore/BaltoQuery/MapServer/0" },
+      "querytaskquickselect": { "url": "http://www.mywachswater.com/ArcGIS/rest/services/Baltimore/BaltoQuery/MapServer" },
+      "querytaskquerypanel": {
+
+      },
+      "querytaskworkorders": {
+
+      },
+      "querytaskvalves": {
+        "source": "wSystemValve",
+        "url": "https://solutions.puretechltd.com/arcgis/rest/services/Baltimore/BaltoQuery/MapServer/4"
+      },
+      "querytaskvalveactivities": {
+        "source": "Valve Status",
+        "uniqueid": "FacilityID",
+        "placeholder": "V231EE23",
+        "url": "https://solutions.puretechltd.com/arcgis/rest/services/Baltimore/BaltoQuery/MapServer/4"
+      },
+    "querytaskHydrantactivities": {
+      "source": "Hydrant Status",
+      "uniqueid": "FacilityID",
+      "placeholder":"H8HH18",
+      "url": "https://solutions.puretechltd.com/wwsarcgis/rest/services/Baltimore/BaltoQuery/MapServer/0"
+    },
+      "dbquerying": {
+        "source": "Valve Activities",
+        "url": "https://solutions.puretechltd.com/wwsarcgis/rest/services/Baltimore/BaltoQuery/MapServer/9",
+        "uniqueid": "MXASSETNUM",
+        "outFields": "MXASSETNUM,DATE_OPERATED,PRIMARY_ACTIVITY,VALVE_SIZE,OPNUT_DEPTH,FIELD_NOTES,EXERCISE,VALVE_CONDITION,TURNS,OP_METHOD,CLOSE_DIRECTION,MAX_TORQUE,FINAL_TORQUE,POSITION_FOUND,POSITION_LEFT,VALVE_USE,STRUCTURE,STRUCTURE_CONDITION,BYP_EXERCISED,BYP_TURNS,BYP_FIELD_NOTES,BYPASS_STRUCTURE,CREW_CHIEF,CANNOT_LOCATE,COVERED_OVER,STRUCTURE_CONDITION,LID_CONDITION,DISCREPANCY1,DISCREP1_DESCRIPTION,DISCREPANCY2,DISCREP2_DESCRIPTION,DISCREPANCY3,DISCREP3_DESCRIPTION,SURFACE_COVER,FROZEN,NEED_TO_RAISE,PACKING_LEAK,EASTING,NORTHING",
+        "dbDateField": "DATE_OPERATED"
+      },
+      "dbqueryingHYD": {
+        "source": "Hydrant Activities",
+        "dbuniqueid": "MXASSETNUM",
+        "outFields": "*"
+      },
+      "identifytask": {
+
+      },
+      "findtasksite": { "url": "http://www.mywachswater.com/ArcGIS/rest/services/Baltimore/BaltoQuery/MapServer/find" },
+      "findtasksiteHWOs": {
+
+      },
+    "webtools":{
+      "responsePointsurl":"https://solutions.puretechltd.com/wwsarcgis/rest/services/Baltimore/DrawingTools/FeatureServer/0",
+      "responselinesurl":"https://solutions.puretechltd.com/wwsarcgis/rest/services/Baltimore/DrawingTools/FeatureServer/1",
+      "responsePolyurl":"https://solutions.puretechltd.com/wwsarcgis/rest/services/Baltimore/DrawingTools/FeatureServer/2"
+      },
+      "findaddressparams": { "defaultAddress": "600 Abel Wolman Municipal Building Baltimore, MD 21202" },
+      "findtileparams": {
+        "layerids": "2",
+        "searchfields": "areaname",
+        "defaultTile": "FF24"
+      },
+      "findvalveactivitiesparams": {
+        "layerids": "7",
+        "searchfields": "TRANSFERRED_facilityID"
+      },
+      "findvalveparamsvnum": {
+        "layerids": "1",
+        "searchfields": "FACILITYID",
+        "defaultValve": "V89FF24"
+      },
+      "findhydrantparamshnum": {
+        "layerids": "0",
+        "searchfields": "FACILITYID"
+      },
+      "findvalveparamsassetid": {
+        "layerids": "0,1",
+        "searchfields": "FACILITYID"
+      },
+      "findHWOvalveparamsassetid": {
+        "layerids": "X",
+        "searchfields": "Transferred_UNITID"
+      },
+      "findtaskisosite": { "url": "http://www.mywachswater.com/wwsArcGIS/rest/services/Baltimore/GeomNetCaw/MapServer/find" },
+      "findisoparams": {
+        "layerids": "8",
+        "searchfields": "OBJECTID"
+      },
+      "querylayer": {
+      },
+      "ReportMenuItem":{
+       "defaultlabel": "Reports",
+       "listitems":[
+         {
+        "label": "Focus Work Orders",
+        "url": "http://www.mywachswater.com/Reports/Pages/Report.aspx?ItemPath=%2fAssessments%2fKCMO%2fKCMO_FOCUS_WORK_ORDERS"
+         }
+       ]},
+      "separator":{
+      "type":"separator"
+      },
+      "QuickSelectAttributes":{
+          "defaultlabel":"Quick Queries",
+          "QuickSelectBaseURL":"https://solutions.puretechltd.com/wwsarcgis/rest/services/Baltimore/BaltoQuery/MapServer/",
+      "QueryItem":[
+          {
+              "serviceindex":"1",
+              "label":"Clear",
+              "where":"wachs_work_order like '9999999999999999999'"
+          },
+          {
+              "serviceindex":"11",
+              "label":"16 to 24 Inch Valves - All Zones",
+              "where":"1=1"
+          },
+          {
+              "serviceindex":"12",
+              "label":"Valves to Open",
+              "where":"1=1"
+          },
+          {
+              "serviceindex":"13",
+              "label":"Added Large Valves to Assess",
+              "where":"1=1"
+          },
+          {
+              "serviceindex":"14",
+              "label":"Added Intermediate Valves to Assess - Zone 1",
+              "where":"1=1"
+          },
+          {
+              "serviceindex":"15",
+              "label":"Added Small Valves to Assess - Zone 1",
+              "where":"1=1"
+          },
+          {
+              "serviceindex":"16",
+              "label":"High Priority Work Orders",
+              "where":"1=1"
+          },
+          {
+              "serviceindex":"17",
+              "label":"Medium Priority Work Orders",
+              "where":"1=1"
+          },
+          {
+              "serviceindex":"18",
+              "label":"Low Priority Work Orders",
+              "where":"1=1"
+          }
+      ]},
+
+    "qsseparator":[
+
+      ],
+      "reports": {
+        "r1": {
+
+        },
+        "r2": {
+
+        }
+      }
+    }
+}
