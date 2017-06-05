@@ -16,9 +16,9 @@ require([ "dojo/dom", "dojo/_base/xhr", "dojo/domReady!" ], function(dom, xhr) {
 
     //valv and hydrant buttons
     // xhr.get({
-    // url : url5,
+    // url : url2,
     // load : function(html) {
-    // dom.byId("valv_content").innerHTML = html;
+    // dom.byId("-----------").innerHTML = html;
     // }
     // });
 });

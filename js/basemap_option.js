@@ -9,7 +9,6 @@ function openBasemap() {
     if (basemapstatus === "off") {
         document.getElementById("basemapPanelDiv").style.display = "block";
         document.getElementById("layerlist").style.display = "none";
-        document.getElementById("webtoolswidget").style.display = "none";
 
         basemapstatus = "on";
     } else if (basemapstatus === "on") {
@@ -23,7 +22,6 @@ function openLayer() {
     if (layerstatus === "off") {
         document.getElementById("layerlist").style.display = "block";
         document.getElementById("basemapPanelDiv").style.display = "none";
-        document.getElementById("webtoolswidget").style.display = "none";
 
         layerstatus = "on";
     } else if (layerstatus === "on") {
@@ -32,20 +30,7 @@ function openLayer() {
 
     }
 }
-function openwebtools() {
 
-    if (webtoolstatus === "off") {
-        document.getElementById("webtoolswidget").style.display = "block";
-        document.getElementById("layerlist").style.display = "none";
-        document.getElementById("basemapPanelDiv").style.display = "none";
-
-        webtoolstatus = "on";
-    } else if (webtoolstatus === "on") {
-        document.getElementById("webtoolswidget").style.display = "none";
-        webtoolstatus = "off";
-
-    }
-}
 
 
 function closepanels() {
@@ -58,10 +43,7 @@ function closepanels() {
         document.getElementById("basemapPanelDiv").style.display = "none";
         basemapstatus = "off";
     }
-    if (webtoolswidget === "on") {
-        document.getElementById("webtoolswidget").style.display = "none";
-        webtoolswidget = "off";
-    }
+
 
     $('body').removeClass('nav-expanded');
 

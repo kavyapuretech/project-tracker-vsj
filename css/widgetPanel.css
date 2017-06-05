@@ -21,7 +21,9 @@ a.nav-expander {/* quick link button collapsed */
     -o-transition: right 0.3s ease-in-out 0s;
     border-radius: 10px;
 }
-
+a#nav-expandermini {
+    display: none;
+}
 a.nav-expander:hover {
     cursor: pointer;
     text-decoration: underline;
@@ -33,7 +35,7 @@ a.nav-expander.fixed {
 }
 
 .nav-expanded a.nav-expander.fixed {
-    right: 239px; /* quick link button expanded */
+    right: 255px; /* quick link button expanded */
     top: 116px;
 }
 .nav-expanded nav {
@@ -46,9 +48,9 @@ nav {
     overflow: auto;
     position: fixed;
     top: 85px;
-    right: -227px; /* menu offset */
+    right: -250px; /* menu offset */
     font-size: 10px;
-    width: 227px; /* menu width */
+    width: 250px; /* menu width */
     z-index: 2000;
     margin: 2px 0px 0px 0px;
     transition: right 0.3s ease-in-out 0s;
@@ -140,7 +142,149 @@ nav {
     font-size: larger;
     float: inherit;
 }
+#Clearcrew{
+    font-size: larger;
+    float: inherit;
+}
 #clearall{
     font-size: larger;
     float: inherit;
+}
+#gridnumber{
+    font-size: small;
+    width: 40px;
+    color: black;
+}
+#webtools{
+    /*position: absolute;*/
+    /*overflow: auto;*/
+    z-index: 200;
+    /*left: 61px;*/
+    /*display: block;*/
+    /*border: 1px solid #aaa;*/
+    /*background-color #e2e2e2;*/
+    color: darkblue;
+    width: 191px;
+}
+
+.templatePicker td.dojoxGridCell {
+    color: black;
+}
+.templatePicker {
+    border: 0px solid #7EABCD;
+    padding: 12px;
+    -o-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    /*margin-right: 30px;*/
+}
+#webtoolswidget{
+    position: absolute;
+    z-index: 9999;
+    height: 400px;
+    left: 61px;
+    /*display: none;*/
+    border: 1px solid #aaa;
+    /*background: white;*/
+    /*overflow-y: scroll;*/
+    overflow-x: hidden;
+}
+/*container for h4 header and x in span*/
+#webNotesHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#webNotesHeader h4{
+    margin: 0 0 0 10px;
+}
+#webNotesHeader .webToolsSpan{
+    /*float: right;*/
+    font-size: 26px;
+    margin: 0px 10px;
+    cursor: pointer;
+}
+/*web notes button span and button node*/
+[widgetid="webtoolhighlightbutton"]{
+    width: 35%;
+}
+[widgetid="toggleeditor"]{
+    width: 35%;
+}
+span.dijitReset.dijitInline.dijitButtonNode{
+    /*width: 100%;*/
+    height: 25px;
+    color: #54919d;
+}
+#webtoolstyle .dijitToggleButton{
+    margin: -0.5em;
+}
+span#webtoolhighlightbutton_label {
+    font-size: initial;
+}
+span#toggleeditor {
+    font-size: initial;
+}
+#webtoolstyle{
+    color: #efefef;
+    font-size: small;
+}
+/*iso trace widget*/
+.isoSkipBtn{
+    background-repeat: no-repeat;
+    background-image: url("../Assets/images/btn/isoSkipB30.png");
+    width: 31px;
+    height: 24px;
+    float: left;
+}
+.isoBreakPointBtn{
+    background-image: url("../Assets/images/btn/isoBreakPointC30.png");
+    width: 33px;
+    height: 26px;
+    float: left;
+}
+.isoTraceSubmitBtn, .isoClearBtn, .isoHelpBtn{
+    padding: .21rem;
+    color: darkblue;
+    float: none;
+}
+#isolationbuttonstyle {
+    font-size: larger;
+    color: #e1e1e1;
+    background-color: aliceblue;
+    float: left;
+    width: 220px;
+}
+#submitjob.btn {
+    padding: 1px;
+}
+#submitjob{
+    font-size: initial;
+    color: #00008b;
+}
+#outputstyle {
+    color: #69869c;
+    font-size: small;
+    /*background-color: aliceblue;*/
+}
+#isolatingvalves {
+    color: #00008b;
+    float: left;
+    font-size: small;
+}
+#mainvalves {
+    color: #00008b;
+    float: left;
+    font-size: small;
+    margin-top: -1em;
+}
+/*media queries*/
+@media only screen and (max-device-width:768px) {
+    a#nav-expandermain{
+        display: none;
+    }
+    a#nav-expandermini{
+        display: block;
+    }
 }

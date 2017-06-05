@@ -8,12 +8,12 @@
       "clientlogo": "Assets/BALTIMORECITYSEAL_40.png",
       "apptitle": "Project Tracking: Baltimore DPW",
       "companylogo": "Assets/NewWachsLogo.PNG",
-      "companysmalllogo": "Assets/images/wachsicon.png",
+      "companyminilogo": "Assets/NewWachsLogo_mini.PNG",
       "homelink": { "url": "http://www.wachsws.com/"},
       "newslink": { "url": "http://www.wachsws.com/news"},
       "solutionslink": { "url": "http://www.wachsws.com/solutions"},
       "serviceslink": { "url": "http://www.wachsws.com/services"},
-      "map": {
+      "mapcontent": {
         "xmlns:dt": "urn:schemas-microsoft-com:datatypes",
         "zoomslider": "true",
         "xmin": "-8558453.828774555",
@@ -21,8 +21,12 @@
         "xmax": "-8493922.019319644",
         "ymax": "4800333.163350677",
         "wkid": "102100",
-        "localWKID": "2248",
+        "initialWKID":"3857",
         "northarrow": "source=@Embed(source='src/assets/icons/NorthArrow.png')"
+      },
+      "spatialref":{
+        "wkid": "102100",
+        "localWKID": "2248"
       },
       "vetiledlayerstreet": {
         "culture": "en-US",
@@ -83,10 +87,10 @@
         "outFields": "GRID,CUST_VALVEUSE,WWS_VALVEUSE,VALVE_TYPE,VLV_SIZE,SURFACE_COVER,STRUCTURE,LID_SIZE,INSPECTION_DATE,CONDITION,MAX_MAX_TORQUE,VLV_CLOSE_DIR,INT_WO_DESC,EXT_WO_DESC,BYP_VALVE_PRESENT"
       },
     "assigmentfeaturelayer": {
-      "source": "assignmentlayer",
-      "url": "https://solutions.puretechltd.com/wwsarcgis/rest/services/Baltimore/BaltoQuery/FeatureServer/2",
-      "uniqueid": "GRID_ID",
-      "alpha": ".5"
+       "source": "assignmentlayer",
+       "url": "https://solutions.puretechltd.com/wwsarcgis/rest/services/Baltimore/BaltoQuery/FeatureServer/2",
+       "uniqueid": "GRID_ID",
+       "alpha": ".5"
     },
       "infowindowfeaturelayerHyd": { "url": "http://www.mywachswater.com/ArcGIS/rest/services/Baltimore/BaltoQuery/MapServer/0" },
       "querytaskquickselect": { "url": "http://www.mywachswater.com/ArcGIS/rest/services/Baltimore/BaltoQuery/MapServer" },
@@ -98,13 +102,13 @@
       },
       "querytaskvalves": {
         "source": "wSystemValve",
-        "url": "https://solutions.puretechltd.com/arcgis/rest/services/Baltimore/BaltoQuery/MapServer/4"
+        "url": "https://solutions.puretechltd.com/wwsarcgis/rest/services/Baltimore/BaltoQuery/MapServer/4"
       },
       "querytaskvalveactivities": {
         "source": "Valve Status",
         "uniqueid": "FacilityID",
         "placeholder": "V231EE23",
-        "url": "https://solutions.puretechltd.com/arcgis/rest/services/Baltimore/BaltoQuery/MapServer/4"
+        "url": "https://solutions.puretechltd.com/wwsarcgis/rest/services/Baltimore/BaltoQuery/MapServer/4"
       },
     "querytaskHydrantactivities": {
       "source": "Hydrant Status",
@@ -114,7 +118,7 @@
     },
       "dbquerying": {
         "source": "Valve Activities",
-        "url": "https://solutions.puretechltd.com/wwsarcgis/rest/services/Baltimore/BaltoQuery/MapServer/9",
+        "url": "https://solutions.puretechltd.com/arcgis/rest/services/Baltimore/BaltoQuery/MapServer/9",
         "uniqueid": "MXASSETNUM",
         "outFields": "MXASSETNUM,DATE_OPERATED,PRIMARY_ACTIVITY,VALVE_SIZE,OPNUT_DEPTH,FIELD_NOTES,EXERCISE,VALVE_CONDITION,TURNS,OP_METHOD,CLOSE_DIRECTION,MAX_TORQUE,FINAL_TORQUE,POSITION_FOUND,POSITION_LEFT,VALVE_USE,STRUCTURE,STRUCTURE_CONDITION,BYP_EXERCISED,BYP_TURNS,BYP_FIELD_NOTES,BYPASS_STRUCTURE,CREW_CHIEF,CANNOT_LOCATE,COVERED_OVER,STRUCTURE_CONDITION,LID_CONDITION,DISCREPANCY1,DISCREP1_DESCRIPTION,DISCREPANCY2,DISCREP2_DESCRIPTION,DISCREPANCY3,DISCREP3_DESCRIPTION,SURFACE_COVER,FROZEN,NEED_TO_RAISE,PACKING_LEAK,EASTING,NORTHING",
         "dbDateField": "DATE_OPERATED"
@@ -136,6 +140,10 @@
       "responselinesurl":"https://solutions.puretechltd.com/wwsarcgis/rest/services/Baltimore/DrawingTools/FeatureServer/1",
       "responsePolyurl":"https://solutions.puretechltd.com/wwsarcgis/rest/services/Baltimore/DrawingTools/FeatureServer/2"
       },
+    "isotrace":{
+      "url":"https://solutions.puretechltd.com/wwsarcgis/rest/services/Baltimore/IsolationTrace/GPServer/IsolationTrace",
+      "spatioalrefernce":"3857"
+    },
       "findaddressparams": { "defaultAddress": "600 Abel Wolman Municipal Building Baltimore, MD 21202" },
       "findtileparams": {
         "layerids": "2",
@@ -170,6 +178,47 @@
       },
       "querylayer": {
       },
+      "TruckTracking":{
+        "url": "https://solutions.puretechltd.com/comet/exports/gpsdata.xml",
+        "timer":"2000",
+        "TruckNames":[
+          {
+          "FilterName":"Truck# 92",
+          "Lable":"92"
+          },
+          {
+            "FilterName":"Truck# 11",
+            "Lable":"11"
+          },
+          {
+            "FilterName":"Truck# 93",
+            "Lable":"93"
+          },
+          {
+            "FilterName":"Truck# 91",
+            "Lable":"91"
+          },
+          {
+            "FilterName":"Truck# 90",
+            "Lable":"90"
+          },
+          {
+            "FilterName":"Truck# 87",
+            "Lable":"87"
+          },
+          {
+            "FilterName":"Truck# 68",
+            "Lable":"68"
+          },
+          {
+            "FilterName":"Truck# 6",
+            "Lable":"6"
+          },
+          {
+            "FilterName":"Truck# 39",
+            "Lable":"39"
+          }
+        ]},
       "ReportMenuItem":{
        "defaultlabel": "Reports",
        "listitems":[

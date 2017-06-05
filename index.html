@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=7, IE=9, IE=10">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
     <title>Project Tracker</title>
-    <!--<link rel="stylesheet" href="css/bootstrap.css">-->
     <!--For dom calls and transitions -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -23,7 +22,15 @@
     <script type="text/javascript" src="Config/appConfigLoader.js"></script>
     <script type="text/javascript" src="js/basemap_option.js"></script>
     <script type="text/javascript" src="js/canvasfunctions.js"></script>
-
+    <!--ESRI js Scripts files-->
+    <script type="text/javascript" src="js/map_widget.js"></script>
+    <script type="text/javascript" src="js/grid_Assignment_widget.js"></script>
+    <script type="text/javascript" src="js/trucktracking_widget.js"></script>
+    <script type="text/javascript" src="js/webtools_widget.js"></script>
+    <script type="text/javascript" src="js/isotrace_widget.js"></script>
+    <script type="text/javascript" src="js/infowindowcontent.js"></script>
+    <!--Remove pics with paths left blank in config-->
+    <!--<script src="js/RemoveBadPathImages.js"></script>-->
     <style>
         html, body, #map {
             height: 100%;
@@ -41,6 +48,7 @@
         }
     </style>
 
+
 </head>
 <body class="tundra">
 <div class="wrapper">
@@ -49,11 +57,13 @@
             <div class="titleDivLeft">
                 <!--clientiocon AMD citytagename from JSON FILE-->
                 <a class="client-logo"><img
-                        src="" id="clienticon" height="30px" width="45px"> </a>
+                        src="" id="clienticon"/> </a>
                 <p class="appTitle"> &nbsp;Project Tracker <br>
-                    <span class="appSubTitle" id="citytagname"></span></p>
+                    <span class="appSubTitle" id="citytagname"></span>
+                </p>
             </div>
             <div class="titleDivRight">
+
                 <div class="navListDiv">
                     <ul class="navList">
                         <!--list targets from JSON FILE-->
@@ -63,40 +73,42 @@
                         <li><a class="webLink" target="_blank" id="serviceslink">Link3</a></li>
                     </ul>
                 </div>
-                <img height="85%" width="40%" src="" id="companyicon">
+                <img height="100%" width="16%" src="" id="companyminiicon">
+                <img height="65%" width="40%" src="" id="companyicon">
+
             </div>
         </section>
         <section Class="toolbarDiv">
             <div class="toolbarDivLeft">
-                <button onclick="openBasemap()" alt="basemaps">
+                <button onclick="openBasemap()" title="Maps">
                     <img src="Assets/small_BaseMapBlue.png" alt ="b\maps" height="16" width="16"/>
                     BaseMaps
                 </button>
-                <button onclick="openLayer()" alt="Layerlist">
+                <button onclick="openLayer()" title="Layerlist">
                     <img src="Assets/small_layersBlue.png" height="16" width="16"/>
                     Layers
                 </button>
-                <button onclick="openwebtools()" alt="Web Notes">
-                    <img src="Assets/small_layersBlue.png" height="16" width="16"/>
-                    Web Notes
-                </button>
+                <div id="my_button"></div>
+
             </div>
             <div class="toolbarDivRight">
-                <select id="queryMenuBtn" class="selectMenu queryMenu" name="Quick Queries">Quick Queries</select>
-                <select id="reportsMenuBtn" class="selectMenu ReportMenu" name="Report Queries">Report Queries</select>
+                <div id="results">
+                    <strong id="dbDateLbl">DB Date: </strong><span class="statsResults" id="dbDateResult"></span><br>
+                </div>
+                <select id="queryMenuBtn" class="selectMenu queryMenu querybutn" name="Quick Queries"></select>
+                <select id="reportsMenuBtn" class="selectMenu ReportMenu  reportbtn" name="Report Queries"></select>
                 <div id="search"></div>
-                <!--<span><img height="20px" width="20px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Ic_menu_48px.svg/2000px-Ic_menu_48px.svg.png"/></span>-->
             </div>
         </section>
     </header>
     <nav style="overflow:hidden">
-        <!--widgetAccordianContent.htm.htm-->
+        <!--widgetAccordianContent.htm-->
         <div id="widgetPanelDiv"></div>
     </nav>
     <div>
         <div class="navbar-header pull-right">
             <a id="nav-expandermain" class="nav-expander fixed toolBtn"> WIDGETS </a>
-            <!--<a class="nav-expander fixed" id="nav-expandermini">&#9776;</a>-->
+            <a id="nav-expandermini" class="nav-expander fixed toolBtn">&#9776;</a>
         </div>
     </div>
     <div id="MapNavBtnDiv">
@@ -116,6 +128,8 @@
     <main>
         <!--Map set to absolute for overlaying shadow div-->
         <div id="mapDiv" class="mapDiv" onclick="closepanels()" style="position: absolute">
+
+           <!--basemap gallary-->
             <div id="basemapPanelDiv" class="toolPopUpContainer">
                 <div style="height: 40px;">
                     <h4 style="float: left; width: 80%; margin: 5px; vertical-align: center;">Select a Basemap</h4>
@@ -124,47 +138,27 @@
             </div>
             <hr style="margin: 0px 0px 5px 0px;">
             <div id="basemapGallery"></div>
-        </div>
-        <div id="layerlist" class="toolPopUpContainer">
-            <div style="height: 40px;">
-                <h4 style="float: left; width: 80%; margin: 5px; vertical-align: center;">Layerlist</h4>
-                <span style="float: right; font-size: 26px; margin: 0px 10px; cursor: pointer;"
-                      onclick="openLayer()">&times;</span>
             </div>
-            <hr style="margin: 0px 0px 5px 0px;">
-            <div id="layerListDom"></div>
-        </div>
-        <div id="webtoolswidget" class="toolPopUpContainer">
-            <div id="webNotesHeader">
-                <h4>Web Notes</h4>
-                <span class="webToolsSpan" onclick="openwebtools()">&times;</span>
+            <!--layerlist-->
+            <div id="layerlist" class="toolPopUpContainer">
+                <div style="height: 40px;">
+                    <h4 style="float: left; width: 80%; margin: 5px; vertical-align: center;">Layerlist</h4>
+                    <span style="float: right; font-size: 26px; margin: 0px 10px; cursor: pointer;"
+                          onclick="openLayer()">&times;</span>
+                </div>
+                <hr style="margin: 0px 0px 5px 0px;">
+                <div id="layerListDom"></div>
             </div>
-            <button id="webtoolhighlightbutton"></button>
-        <div id="webtools">
-            <div id="templateDiv"></div>
-            <div id="editorDiv"></div>
-        </div>
-        </div>
+        </div> <!-- map div close-->
         <div id="hiddenActivitiesGrid">
+            <p id="featuretabletext"><img src="Assets/images/btn/featuretable.png" alt="featuretableimage">Feature Table</p>
             <div id="featuretablecloseBtn"></div>
             <div id="FeatureTableNode"></div>
         </div>
-    </div>
+
     <div id="Locate_Button"></div>
-        <script src="js/Map.js"></script>
         <div class="mapShadowDiv"></div>
-
-        <!--<button class="toolBtn">Tools</button>-->
-
     </main>
 </div>
-
-<!--Input element created for html to call attributes from json loader -->
-<!-- xmldata.js -->
-<!--<input type="hidden" id="attributevalues">-->
-<!--<input type="hidden" id="template">-->
-<!--<input type="hidden" id="txt_id">-->
-<!--<input type="hidden" id="search_optn">-->
-<!-- xmldata.js end -->
 </body>
 </html>

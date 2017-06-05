@@ -1,38 +1,49 @@
 <div class="panel-group" id="accordion">
     <div class="panel panel-default">
-        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-            <h4 class="panel-title"><a >QueryWidgets</a></h4>
+        <div class="panel-heading" data-toggle="collapse"  data-parent="#accordion" href="#collapse1">
+            <h4 class="panel-title"><a>WebTools</a></h4>
         </div>
         <div id="collapse1" class="panel-collapse collapse">
-            <div class="panel-body">
-                <div id="querydiv">
-                    <a data-toggle="modal" data-target="#myModal" class="btn btn-default messagebtn">message</a>
+            <div class="panel-body" id="webtoolstyle">
+                Display:<input type="button" id="webtoolhighlightbutton"/>
+                Editor:<input type="button" id="toggleeditor"/>
+                <div id="templatePickerPane"></div>
                 </div>
-            </div>
         </div>
     </div>
     <div class="panel panel-default">
         <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-            <h4 class="panel-title"><a>Isolation Tracing</a></h4>
+            <h4 class="panel-title" id="waterisolation"><a>Isolation Tracing</a></h4>
         </div>
         <div id="collapse2" class="panel-collapse collapse isoWidget">
-            <div class="panel-body">
-                <a data-toggle="modal" data-target="#myModal" class="btn btn-default isoBreakPointBtn"></a>
-                <a data-toggle="modal" data-target="#myModal" class="btn btn-default isoSkipBtn"></a>
-                <a data-toggle="modal" data-target="#myModal" class="btn btn-default isoTraceSubmitBtn">Trace</a>
-                <a data-toggle="modal" data-target="#myModal" class="btn btn-default isoClearBtn">Clear</a>
-                <a data-toggle="modal" data-target="#myModal" class="btn btn-default isoHelpBtn">?</a>
+            <div class="panel-body flex-container">
+                <div id="isolationbuttonstyle">
+                <p id="inputflag" title="Input flagenabled from which to start the trace " class="btn btn-default isoBreakPointBtn flex-item item1">&emsp;&emsp;Flag</p>
+                    <br><br>
+                <p id="inputskip" title="Skip location where to stop" class="btn btn-default isoSkipBtn flex-item item2">&emsp;&emsp;Skip</p>
+                <br><br><br>
+                <a id="submitjob" class="btn btn-default isoTraceSubmitBtn"></a>
+                <a id="clearjob" class="btn btn-default isoClearBtn"></a>
+                <a id="jobfailed" class="btn btn-default isoHelpBtn">?</a>
+                <div id="isooutput">
+                    <h3 id="outputstyle">Output</h3>
+                    <p id="isolatingvalves"></p>
+                    <p id="mainvalves"></p>
+                </div>
+                </div>
+            </div>
             </div>
         </div>
-    </div>
     <div class="panel panel-default">
         <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse3">
             <h4 class="panel-title"><a>Grid Assignments</a></h4>
         </div>
         <div id="collapse3" class="panel-collapse collapse">
-            <div class="panel-body">
-                <div id="assignmenttable">
-               <div id="optionsdiv">    Crew <select id="crewname">
+            <div class="panel-body" id="assignmenttable">
+                <!--<div id="assignmenttable">-->
+               <div id="optionsdiv">
+                   Grid:<input type="text" id="gridnumber" placeholder="" style="width: 40px; color: black;">
+                   Crew <select id="crewname" style="width: 30px;">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -45,35 +56,41 @@
                     <option value="10">10</option>
                  </select>
                </div>
-                <br>
-              <div id="editdiv">  <input type="text" id="gridnumber" placeholder="Enter grid number">
-              <input type="button" value="update" id="updatecrew">
-              <input type="button" value="X">
+              <div id="editdiv"><br>
+              <input type="button" value="Assign" id="updatecrew">
+              <input type="button" value="Remove"id="Clearcrew">
               <br>
-              <input type="button" value="clear all assignments" id="clearall">
+              <!--<input type="button" value="clear all assignments" id="clearall">-->
             </div>
-            </div>
+            <!--</div>-->
         </div>
     </div>
     </div>
-    <!--<div class="panel panel-default">-->
-        <!--<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse4">-->
-            <!--<h4 class="panel-title"><a>Legend</a></h4>-->
-        <!--</div>-->
-        <!--<div id="collapse4" class="panel-collapse collapse">-->
-            <!--<div class="panel-body">-->
-                <!--<a data-toggle="modal" data-target="#myModal" class="btn btn-default messagebtn">message</a>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="panel panel-default">-->
-        <!--<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse5">-->
-            <!--<h4 class="panel-title"><a>LayerList</a></h4>-->
-        <!--</div>-->
-        <!--<div id="collapse5" class="panel-collapse collapse">-->
-            <!--<div class="panel-body">-->
-                <!--<a data-toggle="modal" data-target="#myModal" class="btn btn-default messagebtn">message</a>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
+    <div class="panel panel-default" id="miniRpanal">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+            <h4 class="panel-title"><a>Report Queries</a></h4>
+        </div>
+        <div id="collapse4" class="panel-collapse collapse">
+            <div class="panel-body" id=""quickselect_panel>
+             <select id="minireportsMenuBtn" class="selectMenu ReportMenu" name="Report Queries"></select>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default" id="miniQpanal">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+            <h4 class="panel-title"><a>Quick Queries</a></h4>
+        </div>
+        <div id="collapse5" class="panel-collapse collapse">
+            <div class="panel-body">
+                <select id="miniqueryMenuBtn" class="selectMenu queryMenu" name="Quick Queries"></select>
+            </div>
+        </div>
+    </div>
 </div>
+<!--<a STYLE="font-size:12px">WebTools</a><input type="button" class="panel-title" id="toggleeditor" >-->
+<!--</div>-->
+<!--<div id="collapse1" class="panel-collapse collapse">-->
+<!--<div class="panel-body" >-->
+<!--&lt;!&ndash;Editor:<input type="button" id="toggleeditor"/>&ndash;&gt;-->
+<!--Display:<input type="button" id="webtoolhighlightbutton"/>-->
+<!--</div>-->
